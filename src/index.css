@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 220 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+
+    --primary: 38 92% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 10% 92%;
+    --muted-foreground: 220 10% 40%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 85%;
+    --input: 220 15% 85%;
+    --ring: 38 92% 50%;
+
+    --radius: 0.25rem;
+
+    /* Custom construction tokens */
+    --construction-dark: 220 20% 10%;
+    --construction-charcoal: 220 15% 15%;
+    --construction-steel: 220 10% 30%;
+    --construction-concrete: 220 8% 60%;
+    --construction-amber: 38 92% 50%;
+    --construction-amber-dark: 30 85% 45%;
+    --construction-light: 40 20% 95%;
+<<<<<<< HEAD
+=======
+    --construction-teal: 167 55% 45%;
+>>>>>>> d4bf14995beb35cd183d7d6234f08a83330b7bc4
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 20% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 38 92% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 25%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 38 92% 50%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-[hsl(var(--construction-amber-dark))];
+  }
+
+  .bg-construction-dark {
+    background-color: hsl(var(--construction-dark));
+  }
+
+  .bg-construction-charcoal {
+    background-color: hsl(var(--construction-charcoal));
+  }
+
+  .bg-construction-steel {
+    background-color: hsl(var(--construction-steel));
+  }
+
+  .text-construction-amber {
+    color: hsl(var(--construction-amber));
+  }
+
+  .bg-construction-amber {
+    background-color: hsl(var(--construction-amber));
+  }
+
+  .border-construction-amber {
+    border-color: hsl(var(--construction-amber));
+  }
+
+  .diagonal-cut {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+
+  .diagonal-cut-reverse {
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .skew-section {
+    transform: skewY(-3deg);
+  }
+
+  .skew-section-content {
+    transform: skewY(3deg);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--construction-dark));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--construction-amber));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--construction-amber-dark));
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
