@@ -6,10 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-<<<<<<< HEAD
-=======
 import { supabase } from "@/integrations/supabase/client";
->>>>>>> d4bf14995beb35cd183d7d6234f08a83330b7bc4
 
 const contactInfo = [
   {
@@ -33,10 +30,7 @@ const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
-<<<<<<< HEAD
-=======
   const [isSubmitting, setIsSubmitting] = useState(false);
->>>>>>> d4bf14995beb35cd183d7d6234f08a83330b7bc4
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -44,15 +38,6 @@ const Contact = () => {
     message: "",
   });
 
-<<<<<<< HEAD
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
-    setFormData({ name: "", email: "", phone: "", message: "" });
-=======
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -81,7 +66,6 @@ const Contact = () => {
     }
     
     setIsSubmitting(false);
->>>>>>> d4bf14995beb35cd183d7d6234f08a83330b7bc4
   };
 
   return (
@@ -134,11 +118,12 @@ const Contact = () => {
                       Phone Number
                     </label>
                     <Input
+                      type="tel"
                       value={formData.phone}
                       onChange={(e) =>
                         setFormData({ ...formData, phone: e.target.value })
                       }
-                      placeholder="+91 XXXXX XXXXX"
+                      placeholder="+91 98765 43210"
                       className="bg-background"
                     />
                   </div>
@@ -170,24 +155,22 @@ const Contact = () => {
                     placeholder="Tell us about your project..."
                     rows={5}
                     required
-                    className="bg-background resize-none"
+                    className="bg-background"
                   />
                 </div>
-<<<<<<< HEAD
-                <Button type="submit" variant="construction" size="lg" className="w-full">
-                  <Send className="w-4 h-4 mr-2" />
-                  Send Message
-=======
-                <Button 
-                  type="submit" 
-                  variant="construction" 
-                  size="lg" 
-                  className="w-full"
+                <Button
+                  type="submit"
                   disabled={isSubmitting}
+                  className="w-full bg-primary hover:bg-primary/90"
                 >
-                  <Send className="w-4 h-4 mr-2" />
-                  {isSubmitting ? "Sending..." : "Send Message"}
->>>>>>> d4bf14995beb35cd183d7d6234f08a83330b7bc4
+                  {isSubmitting ? (
+                    "Sending..."
+                  ) : (
+                    <>
+                      <Send className="h-4 w-4 mr-2" />
+                      Send Message
+                    </>
+                  )}
                 </Button>
               </form>
             </div>
@@ -197,23 +180,23 @@ const Contact = () => {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="space-y-6"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="space-y-8"
           >
             {contactInfo.map((info, index) => (
               <div
                 key={index}
-                className="bg-secondary p-6 flex items-start gap-4 group hover:bg-secondary/80 transition-colors"
+                className="flex items-start gap-4 p-6 bg-card border border-border"
               >
-                <div className="w-14 h-14 bg-primary flex items-center justify-center flex-shrink-0">
-                  <info.icon className="w-6 h-6 text-primary-foreground" />
+                <div className="p-3 bg-primary/10 text-primary">
+                  <info.icon className="h-6 w-6" />
                 </div>
                 <div>
-                  <h4 className="font-display text-lg text-secondary-foreground mb-2">
+                  <h4 className="font-display text-lg text-foreground mb-2">
                     {info.label}
                   </h4>
-                  {info.values.map((value, i) => (
-                    <p key={i} className="text-secondary-foreground/80">
+                  {info.values.map((value, idx) => (
+                    <p key={idx} className="text-muted-foreground">
                       {value}
                     </p>
                   ))}
@@ -221,18 +204,18 @@ const Contact = () => {
               </div>
             ))}
 
-            {/* CTA Box */}
-            <div className="bg-primary p-8 text-center">
-              <h3 className="font-display text-2xl text-primary-foreground mb-4">
-                Ready to Start Your Project?
-              </h3>
-              <p className="text-primary-foreground/80 mb-6">
-                Let's discuss your construction needs and bring your vision to life.
-              </p>
-              <Button variant="constructionOutlineDark" size="lg">
-                <Phone className="w-4 h-4 mr-2" />
-                Call Us Now
-              </Button>
+            {/* Google Map Placeholder */}
+            <div className="h-64 bg-muted border border-border flex items-center justify-center">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.0!2d73.2445!3d19.1654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA5JzU1LjQiTiA3M8KwMTQnNDAuMiJF!5e0!3m2!1sen!2sin!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Pawar Constructions Location"
+              ></iframe>
             </div>
           </motion.div>
         </div>
